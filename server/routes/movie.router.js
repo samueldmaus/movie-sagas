@@ -1,6 +1,19 @@
 const express = require('express');
 const router = express.Router();
-const pool = require('../modules/pool')
+const pool = require('../modules/pool');
+
+router.get('/', (req,res) => {
+  query = `SELECT "movies".id, "movies".poster, "movies".title, "movies".description, "genres".name FROM "movies"
+  LEFT JOIN "movie_genres" ON "movies".id = "movie_genres".movie_id
+  LEFT JOIN "genres" ON "genres".id = "movie_genres".genre_id
+  ORDER BY "movies".id;`;
+  pool.query(query).then(result => {
+    res.send(result.rows)
+  }).catch(error => {
+    console.log('error in GET:', error);
+    res.sendStatus(500);
+  })
+})
 
 router.post('/', (req, res) => {
   console.log(req.body);
@@ -19,7 +32,7 @@ router.post('/', (req, res) => {
 
     // Depending on how you make your junction table, this insert COULD change.
     const insertMovieGenreQuery = `
-      INSERT INTO "movies_genres" ("movies_id", "genres_id")
+      INSERT INTO "movie_genres" ("movie_id", "genre_id")
       VALUES  ($1, $2);
       `
       // SECOND QUERY MAKES GENRE FOR THAT NEW MOVIE

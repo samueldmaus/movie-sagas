@@ -2,6 +2,9 @@
   text-align: center;
 }
 
+nav {
+  background-color: grey;
+}
 
 .App-header {
   background-color: #222;
