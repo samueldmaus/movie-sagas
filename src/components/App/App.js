@@ -9,7 +9,7 @@ class App extends Component {
       <div className="App">
         <h1>Movies!</h1>
         <Router>
-          {/* ADD PAGES! */}
+          
         </Router>
         <p>Empty Page</p>
       </div>
