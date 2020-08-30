@@ -13,6 +13,7 @@ import axios from 'axios';
 // Create the rootSaga generator function
 function* rootSaga() {
     yield takeEvery("FETCH_MOVIES", fetchMovies);
+    yield takeEvery("FETCH_GENRES", fetchGenres)
 };
 
 function* fetchMovies() {
@@ -20,7 +21,16 @@ function* fetchMovies() {
         let movieResponse = yield axios.get('/api/movie');
         yield put({type: 'SET_MOVIES', payload: movieResponse.data})
     }catch(error) {
-        console.log('error in redux GET:', error)
+        console.log('error in movie GET:', error)
+    }
+}
+
+function* fetchGenres() {
+    try {
+        let movieGenres = yield axios.get('/api/genre');
+        yield put({type: 'SET_GENRES', payload: movieGenres.data})
+    }catch(error) {
+        console.log('error in genre GET:', error)
     }
 }
 
