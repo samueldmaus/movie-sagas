@@ -4,7 +4,8 @@ import {makeStyles} from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import Typography from '@material-ui/core/Typography';
 import {IconButton} from '@material-ui/core';
-import InfoIcon from '@material-ui/icons/Info'
+import InfoIcon from '@material-ui/icons/Info';
+import {Grid} from '@material-ui/core'
 import './MovieList.css'
 
 // component to display movies
@@ -20,25 +21,22 @@ class MovieList extends Component{
     }
 
     render() {
-        const useStyles = makeStyles(theme => ({
-            root: {
-                
-            }
-        }))
         return(
-            <div>
+            <Grid container>
                 {this.props.reduxState.movies.map(movie => (
-                    <Card key={movie.id}>
-                        <img src={movie.poster} alt={movie.title}/>
-                        <Typography gutterBottom variant="h5" color='textPrimary'>
-                            {movie.title}
-                        </Typography>
-                        <IconButton onClick={()=>this.displayDetails(movie)}>
-                            <InfoIcon>Details</InfoIcon>
-                        </IconButton>
-                    </Card>
+                    <Grid key={movie.id} item xs={4}>
+                        <Card>
+                            <img src={movie.poster} alt={movie.title}/>
+                            <Typography gutterBottom variant="h5" color='textPrimary'>
+                                {movie.title}
+                            </Typography>
+                            <IconButton onClick={()=>this.displayDetails(movie)}>
+                                <InfoIcon>Details</InfoIcon>
+                            </IconButton>
+                        </Card>
+                    </Grid>
                 ))}
-            </div>
+            </Grid>
         )
     }
 };
