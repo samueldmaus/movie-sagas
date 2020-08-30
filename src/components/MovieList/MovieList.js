@@ -24,7 +24,7 @@ class MovieList extends Component{
         return(
             <Grid container>
                 {this.props.reduxState.movies.map(movie => (
-                    <Grid key={movie.id} item xs={4}>
+                    <Grid key={movie.id} item xs={4} className="Movie">
                         <Card>
                             <img src={movie.poster} alt={movie.title}/>
                             <Typography gutterBottom variant="h5" color='textPrimary'>

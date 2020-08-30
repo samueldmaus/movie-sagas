@@ -1,4 +1,9 @@
 img {
     width: 150px;
     height: 225px;
+    padding: 5px;
+}
+
+.Movie {
+    padding: 10px;
 }
