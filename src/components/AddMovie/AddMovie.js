@@ -19,15 +19,16 @@ class AddMovie extends Component {
         return (
             <div>
                 <input placeholder="Title" value={this.state.newMovie.title} />
-                <input placeholder="Image Path" value={this.state.newMovie.image} />
+                <input placeholder="Image Path/URL" value={this.state.newMovie.image} />
                 <input placeholder="Description" value={this.state.newMovie.description} />
-                <div className='dropdown'>
-                    <ul>
-                    {this.props.reduxState.genres.map(genre => (
-                        <li>{genre.name}</li>
-                    ))}
-                    </ul>
-                </div>
+                <form>
+                    <select name='add_genre'>
+                        {this.props.reduxState.genres.map(genre=> (
+                            <option key={genre.id} value={genre.name}>{genre.name}</option>
+                        ))}
+                    </select>
+                </form>
+                <button>Add Movie</button>
             </div>
         )
     }
