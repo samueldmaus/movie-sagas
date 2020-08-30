@@ -2,8 +2,9 @@
   text-align: center;
 }
 
-nav {
-  background-color: grey;
+h1 {
+  color: rgb(131, 8, 131);
+  text-shadow: 2px 2px 2px black;
 }
 
 .App-header {

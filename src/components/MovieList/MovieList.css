@@ -2,6 +2,7 @@ img {
     width: 150px;
     height: 225px;
     padding: 5px;
+    border-radius: 10px;
 }
 
 .Movie {
