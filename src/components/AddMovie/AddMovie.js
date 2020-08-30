@@ -42,9 +42,21 @@ class AddMovie extends Component {
                 description: '',
                 genre_id: '',
             })
+            this.props.history.push('/');
         }).catch(error => {
             console.log('error in POST:', error)
         })
+    };
+
+    cancelAdd = (event) => {
+        event.preventDefault();
+        this.setState({
+            title: '',
+            poster: '',
+            description: '',
+            genre_id: '',
+        });
+        this.props.history.push('/');
     }
         
 
@@ -62,6 +74,7 @@ class AddMovie extends Component {
                     ))}
                 </select>
                 <button type='submit'>Add Movie</button>
+                <button onClick={this.cancelAdd}>Cancel</button>
             </form>
         )
     }
