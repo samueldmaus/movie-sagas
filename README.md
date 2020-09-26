@@ -14,6 +14,7 @@ This application gives the user access to a database of popular movies. When the
 - [React](https://reactjs.org)
 - [Postgresql](https://www.postgresql.org/)
 - [Material-UI](https://material-ui.com/)
+- [Express](http://expressjs.com/)
 
 ## Installation
 1. Create database and tables using the database.sql file (I recommend installing Postico to create & run sql queries)
